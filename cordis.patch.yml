@@ -1,0 +1,15 @@
+- insert:
+    - id: qfish
+      name: 'qfish'
+      config:
+        transport: forward-ws
+        url: ws://127.0.0.1:3001
+        accessTokenRef: ''
+        selfId: ''
+        respondToPrivate: true
+        respondToGroup: true
+        groupMentionOnly: true
+        consoleEnabled: true
+        consolePort: 8090
+        consoleListen: 127.0.0.1
+        consoleToken: ''
