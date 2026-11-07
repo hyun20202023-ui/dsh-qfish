@@ -64,6 +64,14 @@ dsh plugin add qfish
 
 短句、语气词、哪里停顿，都按口语来，不写成书面文章。
 
+<div align="center">
+
+<img src="assets/chat-split.png" alt="切句演示" width="520">
+
+<sub>一句话拆成几条发，按语气断，不按字数切</sub>
+
+</div>
+
 **判断交给人设**
 
 什么该回、该说什么、要不要装作没看见，没有写死的规则表；人设文件决定它的性格和反应方式，模型按场合判断。
