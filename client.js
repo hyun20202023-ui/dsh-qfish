@@ -42,7 +42,7 @@ window.__ModuleLoader__.load({
         type: 'button',
         title: '大肥鱼',
         'aria-label': '大肥鱼',
-        onClick: () => setOpen((v) => !v),
+        onClick: () => window.open('/onebot-console', '_blank'),
         style: {
           position: 'fixed',
           right: 18,
@@ -75,7 +75,7 @@ window.__ModuleLoader__.load({
         style: { width: '104%', height: '104%', objectFit: 'contain', pointerEvents: 'none', transform: 'translate(-10%, -3%)' },
       }));
 
-      if (!open) return button;
+      return button;
 
       const panelStyle = {
         position: 'fixed',
