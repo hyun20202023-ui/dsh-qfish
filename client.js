@@ -45,10 +45,10 @@ window.__ModuleLoader__.load({
         onClick: () => setOpen((v) => !v),
         style: {
           position: 'fixed',
-          right: 18,
+          right: 32,
           bottom: 18,
-          width: 88,
-          height: 88,
+          width: 72,
+          height: 72,
           borderRadius: 24,
           border: '1px solid rgba(255,255,255,.65)',
           background: 'rgba(235,244,255,.26)',
