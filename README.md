@@ -12,9 +12,14 @@
 ![stars](https://img.shields.io/github/stars/hyun20202023-ui/dsh-qfish?style=flat-square&color=2b3a67)
 ![issues](https://img.shields.io/github/issues/hyun20202023-ui/dsh-qfish?style=flat-square&color=9aa4b2)
 ![platform](https://img.shields.io/badge/platform-DeepSeek%20Harness-5b7fd4?style=flat-square)
-![version](https://img.shields.io/badge/version-0.1.0-f7f3ee?style=flat-square&labelColor=2b3a67)
+![npm](https://img.shields.io/npm/v/qfish?style=flat-square&color=cb3837)
+![downloads](https://img.shields.io/npm/dm/qfish?style=flat-square&color=2b3a67)
 
 </div>
+
+```bash
+dsh plugin add qfish
+```
 
 ---
 
@@ -84,14 +89,21 @@
 
 ### ① 装插件
 
-本地和服务器一样，让 DSH 装：
+**从 npm 装（推荐）**
 
-```
-用 plugin_manager 的 install_bundle 安装这个插件：
-https://github.com/hyun20202023-ui/dsh-qfish
+```bash
+dsh plugin add qfish
 ```
 
 装完重启 DSH。
+
+**从 GitHub 装**
+
+```bash
+pnpm add git+https://github.com/hyun20202023-ui/dsh-qfish.git
+```
+
+或者在 profile 的 `package.json` 里加依赖，把 `qfish` 放进 `dsh.profile.bundles`，再装一遍依赖。
 
 ### ② 起 NapCat
 
@@ -381,6 +393,25 @@ DSH 可能把 qfish 的会话标成了「已归档」。归档的会话会被 DS
 <summary><b>NapCat 里改了网络配置，插件还是连不上</b></summary>
 
 确认改的是**当前实例**的配置。NapCat 桌面版里 SnowLuma 后端和 napcat 后端的配置文件不在同一个位置，改错文件不会生效。改完还要重启那个实例。
+
+</details>
+
+<details>
+<summary><b>npm 装不上，或者特别慢</b></summary>
+
+换国内镜像：
+
+```bash
+npm config set registry https://registry.npmmirror.com
+```
+
+装完想换回来：
+
+```bash
+npm config set registry https://registry.npmjs.org
+```
+
+镜像只影响下载，不影响发布。
 
 </details>
 
