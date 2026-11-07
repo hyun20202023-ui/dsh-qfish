@@ -14,6 +14,7 @@
 ![platform](https://img.shields.io/badge/platform-DeepSeek%20Harness-5b7fd4?style=flat-square)
 ![npm](https://img.shields.io/npm/v/qfish?style=flat-square&color=cb3837)
 ![downloads](https://img.shields.io/npm/dm/qfish?style=flat-square&color=2b3a67)
+![QQ群](https://img.shields.io/badge/QQ%E7%BE%A4-480910887-12B7F5?style=flat-square)
 
 </div>
 
@@ -148,6 +149,15 @@ qfish 走第二条。两种方式没有谁更好，取舍不同：
 **六、一个包全都有**
 
 机器人逻辑、网页控制台、右下角入口、默认人设，装一个包全在里面。
+
+---
+
+## 🐟 交流群
+
+QQ 群：**480910887**
+
+使用问题、反馈、想要的功能，都可以在群里说。
+装不上的直接贴报错，比在 issue 里来回问快。
 
 ---
 
