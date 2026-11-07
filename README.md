@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🐟 qfish
+<img src="assets/logo.png" width="150" alt="qfish">
+
+# qfish
 
 **让 DeepSeek Harness 直接接管 QQ**
 
