@@ -1,7 +1,7 @@
 {
   "name": "qfish",
-  "version": "0.1.0",
-  "description": "qfish：QQ 机器人（OneBot v11 / NapCat）for DeepSeek Harness，带人设、记忆、好感度、学习表、梗百科和网页控制台。",
+  "version": "0.1.2",
+  "description": "QQ bot plugin for DeepSeek Harness via OneBot v11 / NapCat: persona, per-user memory, image and video understanding, group tools, and a built-in web console.",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
