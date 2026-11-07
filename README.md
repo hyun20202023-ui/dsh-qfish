@@ -77,7 +77,7 @@
 
 ### 准备
 
-- DeepSeek Harness（本地桌面版，或服务器上的 dsh）
+- DeepSeek Harness（本地桌面版，或服务器上的 dsh），并且已经能正常对话（有默认模型）
 - 一个 QQ 小号
 - NapCat
 - 服务器跑的话：一台能开端口的小鸡
@@ -292,6 +292,59 @@ DSH 右下角的悬浮按钮也能直接打开控制台，但它默认指向 `12
 - 确认服务在跑
 - 确认地址和端口
 - 别漏了地址里的 token
+
+</details>
+
+<details>
+<summary><b>QQ 在线，但一条都不回（日志里是 blocked）</b></summary>
+
+DSH 可能把 qfish 的会话标成了「已归档」。归档的会话会被 DSH 直接拒绝执行，模型一次都不会跑。
+
+1. 退出 DSH；
+2. 打开 `~/.dsh/storages/workspace.json`（Windows：`C:\Users\你的用户名\.dsh\storages\workspace.json`）；
+3. 删掉 `archivedSessionIds` 里所有以 `onebot:` 开头的条目；
+4. 保存，重开 DSH。
+
+</details>
+
+<details>
+<summary><b>DSH 里有会话了，但控制台聊天框不动</b></summary>
+
+多半是 profile 没配默认模型，插件新建的会话拿不到模型，每轮直接被判 blocked。
+
+在 profile 的 `cordis.patch.yml` 里加：
+
+```yaml
+- id: agent-default-model
+  name: "@deepseek-ai/dsh-agent-default-model"
+  config:
+    provider: deepseek-account
+    model: deepseek-flash
+    reasoningEffort: high
+```
+
+重启 DSH。
+
+</details>
+
+<details>
+<summary><b>控制台打不开，或者端口被占</b></summary>
+
+多半是开了两个 DSH。任务管理器里把所有 `DeepSeek Harness` 进程结束，只留一个再启动。
+
+</details>
+
+<details>
+<summary><b>同一个 QQ 能在两台机器上同时登吗</b></summary>
+
+不能。两个 NapCat 登同一个号会互相踢，表现就是「刚才还好好的，突然掉线」。
+
+</details>
+
+<details>
+<summary><b>NapCat 里改了网络配置，插件还是连不上</b></summary>
+
+确认改的是**当前实例**的配置。NapCat 桌面版里 SnowLuma 后端和 napcat 后端的配置文件不在同一个位置，改错文件不会生效。改完还要重启那个实例。
 
 </details>
 
