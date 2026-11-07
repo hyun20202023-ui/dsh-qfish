@@ -64,5 +64,13 @@
     "napcat",
     "dsh-plugin"
   ],
-  "license": "MPL-2.0"
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyun20202023-ui/dsh-qfish.git"
+  },
+  "homepage": "https://github.com/hyun20202023-ui/dsh-qfish",
+  "bugs": {
+    "url": "https://github.com/hyun20202023-ui/dsh-qfish/issues"
+  }
 }
