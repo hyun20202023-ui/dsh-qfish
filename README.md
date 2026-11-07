@@ -73,15 +73,18 @@
 
 ## 快速开始
 
+两种跑法：本机跑，或者丢到服务器。装插件那步一样，起 NapCat 和开控制台不一样。
+
 ### 准备
 
-- 一台能跑 DeepSeek Harness 的机器（本地或服务器）
-- 一个 QQ 号（建议小号）
-- NapCat（或任意 OneBot v11 实现）
+- DeepSeek Harness（本地桌面版，或服务器上的 dsh）
+- 一个 QQ 小号
+- NapCat
+- 服务器跑的话：一台能开端口的小鸡
 
 ### ① 装插件
 
-让 DSH 帮你装，把仓库地址发给它：
+本地和服务器一样，让 DSH 装：
 
 ```
 用 plugin_manager 的 install_bundle 安装这个插件：
@@ -90,34 +93,63 @@ https://github.com/hyun20202023-ui/dsh-qfish
 
 装完重启 DSH。
 
-### ② 配 OneBot
+### ② 起 NapCat
 
-在 NapCat 里登录 QQ → 网络配置 → 新建 **WebSocket 服务器** → 记下端口 → 消息格式选 `array`。
+**本地**
 
-### ③ 填地址
+1. 装 NapCat，登录 QQ；
+2. 网络配置 → 新建 **WebSocket 服务器**；
+3. 端口 3001，消息格式 `array`。
 
-在 DSH 的插件设置里找到 **qfish**，填这几项：
+**服务器（Docker）**
 
-| 配置 | 填什么 |
-|---|---|
-| `url` | `ws://127.0.0.1:3001` |
-| `accessTokenRef` | DSH 凭据名，默认 `ONEBOT_ACCESS_TOKEN`；NapCat 没设 token 就留空 |
-| `consoleEnabled` | 保持开启 |
+```bash
+docker run -d --name napcat --restart unless-stopped \
+  -p 3001:3001 -p 6099:6099 \
+  -v /opt/napcat:/app/napcat \
+  mlikiowa/napcat-docker:latest
+```
 
-控制台端口、监听地址、访问令牌也在同一个配置里。
+- `3001`：给插件连的 WebSocket；
+- `6099`：NapCat 的网页，用来扫码；
+- `/opt/napcat`：登录状态和数据，重启不丢。
+
+起来之后用浏览器打开 `http://服务器IP:6099`，扫码登录 QQ。
+
+### ③ 填配置
+
+DSH → 插件设置 → **qfish**：
+
+| 配置 | 本地 | 服务器 |
+|---|---|---|
+| `url` | `ws://127.0.0.1:3001` | `ws://127.0.0.1:3001` |
+| `accessTokenRef` | NapCat 设了 token 才填 | 同左 |
+| `consoleEnabled` | `true` | `true` |
+| `consoleListen` | `127.0.0.1` | **`0.0.0.0`** |
+| `consolePort` | `8090` | `8090`（被占用会自动顺延） |
+| `consoleToken` | 留空自动生成 | 建议自己设一长串 |
+
+**服务器还要放行端口**
+
+- 开 `8090`（控制台）；
+- 开 `6099`（NapCat 网页）；
+- `3001` 只给本机插件用，别暴露到公网。
 
 ### ④ 登录
 
-- QQ 登录：控制台 → **行为参数**，顶部有二维码；
-- B 站登录：控制台 → **B 站配置**，扫码。
+- **本地**：控制台 → 行为参数 → 顶部二维码；也可以直接在 NapCat 界面扫。
+- **服务器**：浏览器开 `http://服务器IP:6099` 扫码；控制台行为参数里也有二维码。
 
-登录后 DSH 右下角会出现它的入口。
+登录成功后再进下一步。
 
-### ⑤ 开聊
+### ⑤ 打开控制台
 
-- 群里 @ 它，或者叫它的名字
-- 私聊直接说话
-- 发链接、发图、发视频，看它怎么接
+- 本地：`http://127.0.0.1:8090/?t=你的令牌`
+- 服务器：`http://服务器IP:8090/?t=你的令牌`
+
+令牌就是配置里的 `consoleToken`；留空自动生成的话，去 DSH 启动日志里找「控制台已启动」那一行。
+
+DSH 右下角的悬浮按钮也能直接打开控制台，但它默认指向 `127.0.0.1:8090`；在服务器上访问时，把地址换成服务器 IP。
 
 ---
 
