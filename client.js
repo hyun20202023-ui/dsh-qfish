@@ -45,10 +45,10 @@ window.__ModuleLoader__.load({
         onClick: () => setOpen((v) => !v),
         style: {
           position: 'fixed',
-          right: 32,
+          right: 18,
           bottom: 18,
-          width: 72,
-          height: 72,
+          width: 88,
+          height: 88,
           borderRadius: 24,
           border: '1px solid rgba(255,255,255,.65)',
           background: 'rgba(235,244,255,.26)',
@@ -72,7 +72,7 @@ window.__ModuleLoader__.load({
         src: IMG,
         alt: '',
         draggable: false,
-        style: { width: '116%', height: '116%', objectFit: 'contain', pointerEvents: 'none', transform: 'translate(5%, -3%)' },
+        style: { width: '104%', height: '104%', objectFit: 'contain', pointerEvents: 'none', transform: 'translate(-10%, -3%)' },
       }));
 
       if (!open) return button;
