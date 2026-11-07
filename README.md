@@ -1,5 +1,11 @@
 # qfish
 
+![license](https://img.shields.io/github/license/hyun20202023-ui/dsh-qfish)
+![stars](https://img.shields.io/github/stars/hyun20202023-ui/dsh-qfish)
+![issues](https://img.shields.io/github/issues/hyun20202023-ui/dsh-qfish)
+![platform](https://img.shields.io/badge/platform-DeepSeek%20Harness-blueviolet)
+![version](https://img.shields.io/badge/version-0.1.0-informational)
+
 qfish 是 DeepSeek Harness 的插件。接上 QQ 之后，就是一只大肥鱼：收发消息、看图、看视频、管群。
 
 它用的模型、会话、工具都来自 DSH，没有另外一套服务。
