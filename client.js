@@ -42,7 +42,7 @@ window.__ModuleLoader__.load({
         type: 'button',
         title: '大肥鱼',
         'aria-label': '大肥鱼',
-        onClick: () => window.open('/onebot-console', '_blank'),
+        onClick: () => window.open('http://127.0.0.1:8090/open', '_blank'),
         style: {
           position: 'fixed',
           right: 12,
