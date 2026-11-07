@@ -64,13 +64,8 @@ dsh plugin add qfish
 
 短句、语气词、哪里停顿，都按口语来，不写成书面文章。
 
-<div align="center">
-
 <img src="assets/chat-split.png" alt="切句演示" width="520">
 
-<sub>一句话拆成几条发，按语气断，不按字数切</sub>
-
-</div>
 
 **判断交给人设**
 
@@ -90,13 +85,8 @@ dsh plugin add qfish
 
 会话、记忆、社交、观看记录、配置、日志，全在一个网页里。
 
-<div align="center">
-
 <img src="assets/console.png" alt="控制台" width="760">
 
-<sub>控制台：左边功能分区，右边直接改，保存即生效</sub>
-
-</div>
 
 **花费可控**
 
