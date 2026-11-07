@@ -45,8 +45,8 @@ window.__ModuleLoader__.load({
         onClick: () => window.open('/onebot-console', '_blank'),
         style: {
           position: 'fixed',
-          right: 18,
-          bottom: 18,
+          right: 12,
+          bottom: 22,
           width: 88,
           height: 88,
           borderRadius: 24,
