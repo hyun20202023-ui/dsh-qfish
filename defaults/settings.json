@@ -1,0 +1,24 @@
+{
+  "stickerChance": 0.5,
+  "groupAmbientChance": 0.05,
+  "groupFollowUpSeconds": 120,
+  "ttsVoice": "zh-CN-XiaoyiNeural",
+  "proactiveVideoChance": 0,
+  "groupAlwaysUsers": [],
+  "chatVideoChance": 0,
+  "proactiveChance": 0.15,
+  "moodCooldownTurns": 6,
+  "messageBufferMs": 5000,
+  "sessionWindowTurns": 30,
+  "sessionCharLimit": 400000,
+  "pokeReplies": [
+    "干嘛",
+    "咋了",
+    "干什么"
+  ],
+  "replyMaxParts": 4,
+  "sendGapMs": 2000,
+  "replyBudgetPerMin": 6,
+  "replyPartChars": 12,
+  "knownChance": 0.1
+}
