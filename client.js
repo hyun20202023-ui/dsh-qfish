@@ -72,7 +72,7 @@ window.__ModuleLoader__.load({
         src: IMG,
         alt: '',
         draggable: false,
-        style: { width: '104%', height: '104%', objectFit: 'contain', pointerEvents: 'none', transform: 'translate(-10%, -3%)' },
+        style: { width: '104%', height: '104%', objectFit: 'contain', pointerEvents: 'none', transform: 'translate(-4%, 2%)' },
       }));
 
       return button;
