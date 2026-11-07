@@ -21,6 +21,8 @@
 dsh plugin add qfish
 ```
 
+📖 **[使用手册](docs/USER-GUIDE.md)**：机制、配置、行为参数、排障
+
 ---
 
 > qfish 是 DeepSeek Harness 的 QQ 插件。用 NapCat / OneBot 接普通 QQ 号，不需要申请官方机器人。
@@ -39,6 +41,7 @@ dsh plugin add qfish
 - [功能模块](#功能模块)
 - [默认值](#默认值)
 - [它记在哪](#它记在哪)
+- [使用手册](docs/USER-GUIDE.md)
 - [常见问题](#常见问题)
 
 ---
