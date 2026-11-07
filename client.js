@@ -1,3 +1,5 @@
+if (!window.__qfishClientLoaded) {
+  window.__qfishClientLoaded = true;
 window.__ModuleLoader__.load({
   id: 'qfish',
   factory(require) {
@@ -154,3 +156,4 @@ window.__ModuleLoader__.load({
     };
   },
 });
+}
