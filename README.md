@@ -276,6 +276,81 @@ DSH 页面右下角的悬浮按钮也能打开控制台，但它内置的地址�
 
 ---
 
+## 🤖 让 DSH 自己装
+
+<details>
+<summary><sub>点开：一段可以直接发给 DSH 的完整安装指令</sub></summary>
+
+<sub>
+
+```
+帮我安装并接通 qfish（一个 QQ 机器人插件）。按顺序做，每步验证，失败先诊断再报告，不要跳步，最后要能收发消息。
+
+【一、判断环境】
+1. 先确认当前是本地还是服务器：本地是桌面版 DSH（Windows/macOS），服务器是 Linux。
+2. 确认 DSH 版本、profile 名称、profile 目录。
+
+【二、装插件】
+1. 优先从 npm 装：把 qfish 加进 profile 依赖（pnpm add qfish），并确保包名出现在 profile 的 dsh.profile.bundles 里。
+2. npm 装不上时改用仓库：pnpm add git+https://github.com/hyun20202023-ui/dsh-qfish.git。
+3. 装完不要急着继续，先确认依赖已链接、bundle 列表里有 qfish。
+
+【三、准备 NapCat】
+本地：
+1. 安装并打开 NapCatQQ Desktop；
+2. 新建一个 SnowLuma 实例，登录 QQ 小号（需要手机扫码）；
+3. 网络配置里新建 WebSocket 服务器：端口 3001、消息格式 array、token 留空、启用；
+4. 确认 3001 处于监听状态。
+注意：NapCat 桌面版里 SnowLuma 后端和 napcat 后端的配置文件不在同一个位置，改错文件不会生效。
+
+服务器：
+1. 用 Docker 起 NapCat：
+   docker run -d --name napcat --restart unless-stopped -p 3001:3001 -p 6099:6099 -v /opt/napcat:/app/napcat mlikiowa/napcat-docker:latest
+2. 浏览器打开 http://服务器IP:6099，用 WebUI 的 token 登录（token 在 napcat 配置的 webui.json 里）；
+3. 扫码登录 QQ；
+4. 确认 onebot11 配置里 WebSocket 服务器开着：端口 3001、格式 array、token 空；
+5. 用 ss -tn 确认 3001 在监听。
+
+【四、配置插件】
+在 profile 的 cordis.patch.yml 里加（或改）qfish 的配置：
+  url: ws://127.0.0.1:3001
+  accessTokenRef: ""          # NapCat 没设 token 就留空
+  consoleEnabled: true
+  consolePort: 8090
+  consoleListen: 127.0.0.1     # 本地；服务器改成 0.0.0.0
+  consoleToken: ""             # 留空自动生成；服务器建议手填一个长串
+同时确认 profile 里有默认模型配置：
+  - id: agent-default-model
+    config:
+      provider: deepseek-account
+      model: deepseek-flash
+      reasoningEffort: high
+没有的话补上，否则新会话拿不到模型，每轮都会 blocked。
+
+【五、启动与验证】
+1. 完全退出 DSH 再启动（不是关窗口）；
+2. 确认只有一个 DSH 进程在跑，端口没被旧的占着；
+3. 查看日志里「控制台已启动：http://…」那一行，记下带 token 的完整地址；
+4. 打开控制台，确认状态里 napcat 为 true；
+5. 私聊机器人发一句「在吗」，确认能收到回复；
+6. 群里 @ 它发一句，确认群聊也通。
+
+【六、常见失败与处理】
+- 每轮立刻 blocked、模型一次不跑：DSH 把会话归档了。退出 DSH，编辑 ~/.dsh/storages/workspace.json，删掉 archivedSessionIds 里所有以 onebot: 开头的条目，再启动。
+- 控制台显示离线但端口是通的：看状态检测是不是旧版本，重装最新版。
+- 同一 QQ 两边登录：两个 NapCat 登同一个号会互踢，只能留一个。
+- 控制台打不开：检查 consoleListen、端口放行、地址里的 ?t= 令牌。
+
+【七、交付】
+报告：插件版本、profile 路径、控制台完整地址、napcat 状态、私聊和群聊各测一条的结果。失败就说明卡在哪一步、报错原文。
+```
+
+</sub>
+
+</details>
+
+---
+
 ## 🧩 功能模块
 
 ### 人设与说话
