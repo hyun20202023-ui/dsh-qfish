@@ -20,5 +20,6 @@
   "sendGapMs": 2000,
   "replyBudgetPerMin": 6,
   "replyPartChars": 12,
-  "knownChance": 0.1
+  "knownChance": 0.1,
+  "replyTargetChars": 0
 }
