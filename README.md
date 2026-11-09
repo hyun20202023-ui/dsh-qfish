@@ -232,7 +232,7 @@ DSH → 插件设置 → **qfish**：
 
 默认全拒（`allowlist` + 空名单），不配白名单就不会回任何消息。
 
-白名单（推荐）：
+白名单：
 
 ```yaml
 userAccessMode: allowlist
@@ -241,7 +241,7 @@ groupAccessMode: allowlist
 groupIds: ["你的群号"]
 ```
 
-全部放开（风险自负）：
+全部放开：
 
 ```yaml
 userAccessMode: blocklist
