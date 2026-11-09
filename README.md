@@ -228,9 +228,11 @@ DSH → 插件设置 → **qfish**：
 | `groupAccessMode` | `allowlist` | `allowlist` |
 | `groupIds` | 要启用的群号 | 要启用的群号 |
 
-**默认是全拒的**
+**先选一种访问方式**
 
-出厂默认 `allowlist` + 空名单，等于任何人都不能触发它。装完必须至少填：
+默认全拒（`allowlist` + 空名单），不配白名单就不会回任何消息。
+
+白名单（推荐）：
 
 ```yaml
 userAccessMode: allowlist
@@ -239,7 +241,7 @@ groupAccessMode: allowlist
 groupIds: ["你的群号"]
 ```
 
-想全开也行，但要自己显式承担风险：
+全部放开（风险自负）：
 
 ```yaml
 userAccessMode: blocklist
@@ -248,7 +250,7 @@ groupAccessMode: blocklist
 groupIds: []
 ```
 
-不改配置的话，机器人上线也不会回任何消息。
+两种都按需配合 `respondToPrivate: true`（要私聊）、`groupMentionOnly: false`（要接没 @ 的群消息）；配置的 `id` 和 `name` 都写 `qfish`。
 
 **服务器还要放行端口**
 
@@ -353,6 +355,10 @@ DSH 页面右下角的悬浮按钮也能打开控制台，但它内置的地址�
   consolePort: 8090
   consoleListen: 127.0.0.1     # 本地；服务器改成 0.0.0.0
   consoleToken: ""             # 留空自动生成；服务器建议手填一个长串
+  # 访问控制（默认全拒，二选一）：
+  #   白名单：userAccessMode: allowlist / userIds: ["你的QQ"] / groupAccessMode: allowlist / groupIds: ["群号"]
+  #   全开：  userAccessMode: blocklist / userIds: [] / groupAccessMode: blocklist / groupIds: []
+  # 注意：id 和 name 都写 qfish；写旧名 dsh-onebot-fish 配置不会生效
 同时确认 profile 里有默认模型配置：
   - id: agent-default-model
     config:
