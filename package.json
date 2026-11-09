@@ -1,6 +1,6 @@
 {
   "name": "qfish",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "QQ bot plugin for DeepSeek Harness via OneBot v11 / NapCat: persona, per-user memory, image and video understanding, group tools, and a built-in web console.",
   "type": "module",
   "main": "lib/index.js",

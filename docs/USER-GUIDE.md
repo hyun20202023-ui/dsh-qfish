@@ -327,6 +327,29 @@ http://地址:8090/?t=令牌
 | 会话次数上限 | 30 | 到点轮换 |
 | 会话字符上限 | 40 万 | 到点轮换 |
 
+**访问控制（必配）**
+
+出厂默认是全拒：`allowlist` + 空名单，任何人都触发不了它。
+
+```yaml
+respondToPrivate: true
+userAccessMode: allowlist
+userIds: ["你的QQ号"]
+groupAccessMode: allowlist
+groupIds: ["你的群号"]
+```
+
+想全开也行，自己承担风险：
+
+```yaml
+userAccessMode: blocklist
+userIds: []
+groupAccessMode: blocklist
+groupIds: []
+```
+
+不配置的话，机器人上线也不会回任何消息。`respondToPrivate` 默认 `false`，需要私聊就显式打开。
+
 **会话页**
 
 看每个群/私聊的轮次、字符数、最后活跃时间，能强制轮换。

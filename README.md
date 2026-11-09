@@ -166,7 +166,7 @@ QQ 群：**480910887**
 
 - DeepSeek Harness（本地桌面版，或服务器上的 dsh），并且已经能正常对话（有默认模型）
 - 一个 QQ 小号
-- NapCat
+- NapCat（OneBot v11 协议端，含 WebSocket 服务）
 - 服务器跑的话：一台能开端口的小鸡
 
 ### 📦 ① 装插件
@@ -222,6 +222,33 @@ DSH → 插件设置 → **qfish**：
 | `consoleListen` | `127.0.0.1` | **`0.0.0.0`** |
 | `consolePort` | `8090` | `8090`（被占用会自动顺延） |
 | `consoleToken` | 留空自动生成 | 建议自己设一长串 |
+| `respondToPrivate` | `false`（默认不回私聊） | `true` |
+| `userAccessMode` | `allowlist` | `allowlist` |
+| `userIds` | 你的 QQ 号 | 你的 QQ 号 |
+| `groupAccessMode` | `allowlist` | `allowlist` |
+| `groupIds` | 要启用的群号 | 要启用的群号 |
+
+**默认是全拒的**
+
+出厂默认 `allowlist` + 空名单，等于任何人都不能触发它。装完必须至少填：
+
+```yaml
+userAccessMode: allowlist
+userIds: ["你的QQ号"]
+groupAccessMode: allowlist
+groupIds: ["你的群号"]
+```
+
+想全开也行，但要自己显式承担风险：
+
+```yaml
+userAccessMode: blocklist
+userIds: []
+groupAccessMode: blocklist
+groupIds: []
+```
+
+不改配置的话，机器人上线也不会回任何消息。
 
 **服务器还要放行端口**
 
