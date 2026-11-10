@@ -51,7 +51,7 @@ DeepSeek Harness：模型、会话、工具
 | `url` | `ws://127.0.0.1:3001` | OneBot 的 WebSocket 地址 |
 | `accessTokenRef` | `ONEBOT_ACCESS_TOKEN` | 令牌的 DSH 凭据名；NapCat 没设 token 就留空 |
 | `selfId` | 空 | 机器人 QQ 号，留空自动识别 |
-| `respondToPrivate` | `true` | 是否处理私聊 |
+| `respondToPrivate` | `false` | 是否处理私聊 |
 | `respondToGroup` | `true` | 是否处理群聊 |
 | `groupMentionOnly` | `true` | 群里只处理被 @ 或叫名字的消息 |
 | `consoleEnabled` | `true` | 是否启动控制台 |

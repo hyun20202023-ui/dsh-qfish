@@ -33,6 +33,13 @@ dsh plugin add qfish
 > - **直连 DSH**：模型、会话、工具都走 DSH，中间没有别的层
 > - **服务器可用**：Linux 上配好 NapCat 和端口就能常驻
 
+
+> **默认全拒**：安装后不会回复任何人，必须先在配置里填 QQ 用户 / 群白名单（allowlist），空名单等于全拒。
+>
+> **前置**：NapCat 或其它 OneBot v11 实现；视频逐帧画面需要本机 PATH 上有 `ffmpeg`。
+>
+> **衍生说明**：本项目由 `dsh-onebot@1.4.0`（MPL-2.0）二次开发而来，相关代码继续适用 MPL-2.0；不能与 `dsh-onebot` 同时安装（都会注册 `/onebot/api` 并争用同一个 NapCat 连接）。
+
 ---
 
 ## 目录

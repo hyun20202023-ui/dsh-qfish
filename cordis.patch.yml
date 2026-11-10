@@ -6,7 +6,7 @@
         url: ws://127.0.0.1:3001
         accessTokenRef: ''
         selfId: ''
-        respondToPrivate: true
+        respondToPrivate: false
         respondToGroup: true
         groupMentionOnly: true
         consoleEnabled: true

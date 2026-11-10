@@ -1,0 +1,16 @@
+qfish
+=====
+
+This project is derived from dsh-onebot@1.4.0, which is licensed under the
+Mozilla Public License 2.0 (MPL-2.0).
+
+Files in this repository that are derived from dsh-onebot remain under
+MPL-2.0. The full license text is available at:
+https://mozilla.org/MPL/2.0/
+
+Upstream project: https://www.npmjs.com/package/dsh-onebot
+Upstream license: MPL-2.0
+
+qfish cannot be installed together with dsh-onebot: both register the
+/onebot/api web endpoint and connect to the same NapCat / OneBot v11
+WebSocket endpoint, so they will compete for the same messages.
