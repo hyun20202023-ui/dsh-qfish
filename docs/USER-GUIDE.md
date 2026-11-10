@@ -58,6 +58,12 @@ DeepSeek Harness：模型、会话、工具
 | `consolePort` | `8090` | 控制台端口，被占用会自动顺延 |
 | `consoleListen` | `127.0.0.1` | 控制台监听地址，服务器上要改成 `0.0.0.0` |
 | `consoleToken` | 空 | 控制台令牌，留空自动生成并保存 |
+| `userAccessMode` | `allowlist` | 用户名单模式；空名单即全拒 |
+| `userIds` | `[]` | 允许的 QQ 号 |
+| `groupAccessMode` | `allowlist` | 群名单模式；空名单即全拒 |
+| `groupIds` | `[]` | 允许的群号 |
+
+默认全拒：不填白名单不会回复任何人；要放开私聊还要把 `respondToPrivate` 设为 `true`。
 
 行为参数在**控制台**里改，不在这里。见[控制台](#控制台)一节。
 

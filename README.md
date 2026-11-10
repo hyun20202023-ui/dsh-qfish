@@ -229,7 +229,7 @@ DSH → 插件设置 → **qfish**：
 | `consoleListen` | `127.0.0.1` | **`0.0.0.0`** |
 | `consolePort` | `8090` | `8090`（被占用会自动顺延） |
 | `consoleToken` | 留空自动生成 | 建议自己设一长串 |
-| `respondToPrivate` | `false`（默认不回私聊） | `true` |
+| `respondToPrivate` | `false`（默认不回私聊） | `false`（要私聊再改 `true`） |
 | `userAccessMode` | `allowlist` | `allowlist` |
 | `userIds` | 你的 QQ 号 | 你的 QQ 号 |
 | `groupAccessMode` | `allowlist` | `allowlist` |
@@ -332,11 +332,13 @@ DSH 页面右下角的悬浮按钮也能打开控制台，但它内置的地址�
 【一、判断环境】
 1. 先确认当前是本地还是服务器：本地是桌面版 DSH（Windows/macOS），服务器是 Linux。
 2. 确认 DSH 版本、profile 名称、profile 目录。
+3. 确认 PATH 上有 `ffmpeg`（视频逐帧画面要用；没有就 `apt install ffmpeg` 或 `brew install ffmpeg`）。
 
 【二、装插件】
 1. 优先从 npm 装：把 qfish 加进 profile 依赖（pnpm add qfish），并确保包名出现在 profile 的 dsh.profile.bundles 里。
 2. npm 装不上时改用仓库：pnpm add git+https://github.com/hyun20202023-ui/dsh-qfish.git。
 3. 装完不要急着继续，先确认依赖已链接、bundle 列表里有 qfish。
+4. 安装后默认全拒：不填白名单不会回复任何人；不要与 dsh-onebot 同装（会抢同一个 NapCat）。
 
 【三、准备 NapCat】
 本地：
@@ -362,6 +364,7 @@ DSH 页面右下角的悬浮按钮也能打开控制台，但它内置的地址�
   consolePort: 8090
   consoleListen: 127.0.0.1     # 本地；服务器改成 0.0.0.0
   consoleToken: ""             # 留空自动生成；服务器建议手填一个长串
+  respondToPrivate: false      # 默认关私聊；要私聊再加白名单并改 true
   # 访问控制（默认全拒，二选一）：
   #   白名单：userAccessMode: allowlist / userIds: ["你的QQ"] / groupAccessMode: allowlist / groupIds: ["群号"]
   #   全开：  userAccessMode: blocklist / userIds: [] / groupAccessMode: blocklist / groupIds: []
@@ -379,8 +382,8 @@ DSH 页面右下角的悬浮按钮也能打开控制台，但它内置的地址�
 2. 确认只有一个 DSH 进程在跑，端口没被旧的占着；
 3. 查看日志里「控制台已启动：http://…」那一行，记下带 token 的完整地址；
 4. 打开控制台，确认状态里 napcat 为 true；
-5. 私聊机器人发一句「在吗」，确认能收到回复；
-6. 群里 @ 它发一句，确认群聊也通。
+5. 群里 @ 它发一句，确认群聊通；
+6. 要测私聊，先把 `respondToPrivate` 改成 `true` 并把你的 QQ 号填进 `userIds`，再私聊发「在吗」。
 
 【六、常见失败与处理】
 - 每轮立刻 blocked、模型一次不跑：DSH 把会话归档了。退出 DSH，编辑 ~/.dsh/storages/workspace.json，删掉 archivedSessionIds 里所有以 onebot: 开头的条目，再启动。
