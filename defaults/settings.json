@@ -27,5 +27,6 @@
   ],
   "stickerSaveChance": 0.1,
   "biliMemoryPublic": false,
-  "bannedWords": []
+  "bannedWords": [],
+  "moodSensitivity": 30
 }
