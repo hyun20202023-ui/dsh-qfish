@@ -1,3 +1,5 @@
+<h3 align="center">💬 QQ 群：<b>480910887</b></h3>
+
 <div align="center">
 
 <img src="assets/logo.png" width="150" alt="qfish">
