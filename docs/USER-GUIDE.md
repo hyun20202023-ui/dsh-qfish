@@ -441,6 +441,21 @@ groupIds: []
 
 ## 排障
 
+**群里突然不回，日志里有 reasoning effort 报错**
+
+升级到 DSH 0.2.2 后，不要再在 `cordis.patch.yml` 里写 `reasoningEffort: high`：
+
+```yaml
+- id: agent-default-model
+  config:
+    provider: deepseek-account
+    model: deepseek-flash
+```
+
+写了会报 `proposed reasoning effort "high" after step preparation fixed "adapter default"`，会话直接结束，表现就是不回消息。去掉这一行、重启服务即可。
+
+
+
 **它不回我**
 
 1. 群里没 @ 也没叫名字，可能没接话；
