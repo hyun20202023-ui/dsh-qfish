@@ -40,5 +40,6 @@
   "groupMuteWordsNsfw": [],
   "groupMuteWordsInsult": [],
   "groupMuteWordsAd": [],
-  "groupMuteWordsIllegal": []
+  "groupMuteWordsIllegal": [],
+  "wakeLimitPerHour": 30
 }
