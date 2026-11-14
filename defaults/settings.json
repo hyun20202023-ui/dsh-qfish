@@ -41,5 +41,13 @@
   "groupMuteWordsInsult": [],
   "groupMuteWordsAd": [],
   "groupMuteWordsIllegal": [],
-  "wakeLimitPerHour": 30
+  "wakeLimitPerMinute": 5,
+  "biliAutoWatch": true,
+  "biliIdleEnabled": false,
+  "biliIdlePerHour": 2,
+  "biliIdleStart": 8,
+  "biliIdleEnd": 23,
+  "biliMaxDuration": 10,
+  "biliInterestAuto": true,
+  "biliExploreChance": 15
 }
