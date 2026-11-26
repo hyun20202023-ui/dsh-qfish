@@ -220,7 +220,7 @@ const viewProps = computed(() => ({ item: curPage.value, file: curPage.value.fil
     </main>
 
     <footer class="bar">
-      <span>QFISH 0.3.36</span>
+      <span>QFISH 0.3.38</span>
       <span>WS 3001</span>
       <img :src="chibi" class="corner" alt="" />
     </footer>

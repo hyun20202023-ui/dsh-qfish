@@ -63,6 +63,10 @@ onMounted(load);
     </div>
   </div>
 
+  <div class="hint dim">
+    直接写词 = 原样匹配；句式里 <b>/*/</b> 代表 1 个字，<b>/-/</b> 代表 2–10 个字，例如「你/*/死」会命中「你去死」。
+  </div>
+
   <div class="addrow">
     <input v-model="draft" type="text" placeholder="新增禁词" style="flex: 1" @keyup.enter="add" />
     <button class="btn" @click="add">添加</button>
@@ -79,6 +83,8 @@ onMounted(load);
 
 <style scoped>
 .topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: .3rem; font-size: .74rem; }
+.hint { font-size: .72rem; line-height: 1.6; margin: 0 0 .35rem; letter-spacing: .02em; }
+.hint b { color: var(--ink); font-weight: 400; border: 1px solid var(--ink-3); padding: 0 .3rem; border-radius: 3px; }
 .addrow { display: flex; gap: .7rem; margin-bottom: .5rem; }
 .chips { display: flex; flex-wrap: wrap; gap: .45rem; align-content: flex-start; }
 .chip { border: 1px solid var(--ink-3); background: rgba(255,253,242,.35); padding: .2rem .55rem; display: inline-flex; gap: .45rem; align-items: center; font-size: .85rem; }
